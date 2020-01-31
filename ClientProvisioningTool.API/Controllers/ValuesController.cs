@@ -12,17 +12,20 @@ namespace ClientProvisioningTool.API.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        private readonly DataContext _context;
-        public ValuesController(DataContext context)
+       
+        private readonly IValuesRepository _repo;
+
+        public ValuesController(IValuesRepository repo)
         {
-            this._context = context;
+            this._repo = repo;
         }
+
 
         // GET api/values
         [HttpGet]
         public async Task<IActionResult> GetValues()
         {
-            var values = await _context.Values.ToListAsync();
+            var values = await _repo.GetValues();
 
             return Ok(values);
         }
@@ -31,7 +34,7 @@ namespace ClientProvisioningTool.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetValue(int id)
         {
-            var value = await _context.Values.FirstOrDefaultAsync(x => x.Id == id);
+            var value = await _repo.GetValue(id);
 
             return Ok(value);
         }
