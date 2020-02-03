@@ -9,6 +9,10 @@ import { ValueComponent } from './value/value.component';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { ErrorInteceptorProvider } from './_services/error.interceptor';
+import { AdminComponent } from './admin/admin.component';
+import { FaqComponent } from './faq/faq.component';
+import { RouterModule } from '@angular/router';
+import { appRoutes } from './routes';
 
 
 @NgModule({
@@ -16,13 +20,16 @@ import { ErrorInteceptorProvider } from './_services/error.interceptor';
       AppComponent,
       ValueComponent,
       NavComponent,
-      HomeComponent
+      HomeComponent,
+      AdminComponent,
+      FaqComponent
    ],
    imports: [
       BrowserModule,
       HttpClientModule,
       BrowserAnimationsModule,
-      BsDropdownModule.forRoot()
+      BsDropdownModule.forRoot(),
+      RouterModule.forRoot(appRoutes)
    ],
    providers: [
       ErrorInteceptorProvider

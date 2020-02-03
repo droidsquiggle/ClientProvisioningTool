@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-primary">
   <div class="container">
 
-    <a class="navbar-brand" href="#">PINKERTON</a>
+    <a class="navbar-brand" [routerLink]="['/home']">PINKERTON</a>
 
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
@@ -17,9 +17,9 @@
       </a>
       
       <div class="dropdown-menu mt-3" *dropdownMenu>
-        <a class="dropdown-item" href="#"><i class="fa fa-question mr-1"></i>FAQ</a>
+        <a class="dropdown-item" [routerLink]="['/faq']" routerLinkActive="router-link-active" ><i class="fa fa-question mr-1"></i>FAQ</a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#"><i class="fa fa-cogs mr-1"></i>Admin</a>
+        <a class="dropdown-item" [routerLink]="['/admin']" routerLinkActive="router-link-active" ><i class="fa fa-cogs mr-1"></i>Admin</a>
       </div>
     </div>
   
