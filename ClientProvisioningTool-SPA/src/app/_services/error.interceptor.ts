@@ -13,7 +13,7 @@ export class ErrorInteceptor implements HttpInterceptor {
   ): import('rxjs').Observable<import('@angular/common/http').HttpEvent<any>> {
     return next.handle(req).pipe(
         catchError(error => {
-            if (error.status == 401) {
+            if (error.status === 401) {
                 // throw error text back to component
                 return throwError(error.statusText);
             }
